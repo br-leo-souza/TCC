@@ -1,0 +1,123 @@
+/* 
+    Document   : adm-style
+    Created on : 02/04/2014, 07:35:07
+    Author     : rlima
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+/******************************************************************************/
+/******************************** -- ADM -- ***********************************/
+/******************************************************************************/
+#adm{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+}
+#adm #quadro{
+    height: 40%;
+    width: 40%;
+}
+
+#adm fieldset #quadro{
+    height: auto;
+    width: 100%;
+}
+
+#adm fieldset{
+    width: 40%;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+.esquerda{
+    float: left;
+}
+.direita{
+    float: right;
+}
+.centro{margin: 0 auto;}
+
+#menu {
+    margin-left: -100px;
+    float: left;
+    width: 15%;
+    background-color: #1c94c4;
+}
+#pagina {
+    float: right;
+    width: 100%;
+    background-color: #CCC;
+    height: 100%;
+}
+
+#item { 
+    padding-top: 40px; 
+    padding-left: 5px;
+    width: 150px; 
+    height: 150px; 
+    margin-bottom: 10px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    text-align: center; 
+}
+#item a { 
+    width: 80px; 
+    height: 80px; 
+    color: white; 
+    line-height: 50px; 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    display: inline-block;
+    -webkit-border-radius: 120px; 
+    border-radius: 120px; 
+    font-size: 30px;
+    padding: 5px;
+}
+#item a:hover { 
+    text-decoration: none; 
+    border-color: white; 
+    color: black; 
+    background-color: white; 
+    -webkit-transition: all 0.5s ease-in-out; 
+    -moz-transition: all 0.5s ease-in-out; 
+    -ms-transition: all 0.5s ease-in-out; 
+    -o-transition: all 0.5s ease-in-out; 
+    transition: all 0.5s ease-in-out; 
+}
+#item a i { 
+    text-align: center;
+    margin: 0 !important;
+}
+#itemresponsivo { 
+    color: white;
+    width: 100%; 
+    height: 10%; 
+    margin-bottom: 10px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    text-align: center; 
+    display: list-item;
+    padding: 5px;
+}
+#itemresponsivo a {     
+    
+}
+#itemresponsivo:hover { 
+    text-decoration: none; 
+    border-color: white; 
+    color: black; 
+    background-color: white; 
+    -webkit-transition: all 0.5s ease-in-out; 
+    -moz-transition: all 0.5s ease-in-out; 
+    -ms-transition: all 0.5s ease-in-out; 
+    -o-transition: all 0.5s ease-in-out; 
+    transition: all 0.5s ease-in-out; 
+}
+#itemresponsivo a i { 
+    text-align: center;
+    margin: 0 !important;
+}

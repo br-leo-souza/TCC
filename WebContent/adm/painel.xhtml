@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+        <!-- Particular -->
+        <link rel="stylesheet" type="text/css" media="all" href="css/adm-style.css" />
+        <link rel="stylesheet" href="css/font-awesome.css" />
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.css" />
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Mini AJAX File Upload Form -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Painel de Controle</title>
+        
+                <script type="text/javascript">
+              //<![CDATA[
+            window.onload = function() {
+                $("#maps").click(function() {
+                	var endereco = $(this).parent().parent().parent().find('input').eq(1).val();
+                	var linkMapa = 'https://www.google.com.br/maps/place/' + endereco + '';
+                    var janela = window.open(linkMapa, 'janela', 'width=700, height=400, top=99, left=99, scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=yes, fullscreen=yes');
+                });
+            }
+            
+            /* Mobile menu */
+        	$('.mobile-menu-icon').click(function(){
+        		$('.left-nav').slideToggle();				
+        	});
+
+            
+            function start() {
+                PF('statusDialog').show();
+            }
+             
+            function stop() {
+                PF('statusDialog').hide();
+            }
+//]]>
+        </script>
+        
+        </h:head>
+        
+        
+        
+<h:body>
+
+	<div class="responsive-navigation visible-sm visible-xs">
+
+		<div class="responsive_menu">
+			<ul class="main_menu">
+				<li><a onclick="PF('modalAdministrador').show();" class="show-1" id="itemresponsivo" href="#"><i class="fa fa-users"></i> Administrador</a></li>
+				<li><a onclick="PF('modalMusica').show();" class="show-2" id="itemresponsivo" href="#"><i class="fa fa-music"></i>M&uacute;sica</a></li>
+				<li><a onclick="PF('modalAlbum').show();" class="show-3" id="itemresponsivo" href="#"><i class="fa fa-book"></i> Album</a></li>
+				<li><a onclick="PF('modalFoto').show();" class="show-4" id="itemresponsivo" href="#"><i class="fa fa-photo"></i> Foto</a></li>
+				<li><a onclick="PF('modalPost').show();" class="show-8" id="itemresponsivo" href="#"><i class="fa fa-newspaper-o"></i>Texto</a></li>
+			</ul>
+		</div>
+	</div>
+
+				<p:dialog header="Inserir Administrador" widgetVar="modalAdministrador" modal="true">
+					<h:form>
+						<p:panelGrid columns="2" style="text-align: center;">
+							<p:outputLabel for="nome" value="Nome : " />
+							<p:inputText id="nome" value="#{AdministradorMB.nome}" required="true" requiredMessage="Nome é obrigatório!"/>
+							<p:outputLabel for="sobrenome" value="Sobrenome : " />
+							<p:inputText id="sobrenome" value="#{AdministradorMB.sobrenome}" requiredMessage="Sobrenome é obrigatório!" required="true" />
+							<p:outputLabel for="login" value="Login : " />
+							<p:inputText id="login" value="#{AdministradorMB.login}" requiredMessage="Login é obrigatório!" required="true" />
+							<p:outputLabel for="senha" value="Senha : " />
+							<p:password id="senha" value="#{AdministradorMB.senha}" requiredMessage="Senha é obrigatório!" required="true" feedback="true" />
+							<p:outputLabel for="email" value="Email : " />
+							<p:inputText id="email" value="#{AdministradorMB.email}" requiredMessage="Email é obrigatório!" required="true" />
+							<p:outputLabel for="telefone" value="Telefone : " />
+							<p:inputMask id="telefone" value="#{AdministradorMB.telefone}" requiredMessage="Telefone é obrigatório!" required="true" mask="(99) 99999-9999" />
+							<p:button styleClass="btn btn-info" href="administrador/lista.jsf" value="Listar" icon="fa-list"/>
+							<h:commandButton styleClass="btn btn-info" value="Salvar" action="#{AdministradorMB.salvar}" />
+						</p:panelGrid>
+					</h:form>
+				</p:dialog>
+
+				<p:dialog header="Inserir Música" widgetVar="modalMusica" modal="true">
+					<h:form>
+    					<p:panelGrid columns="2" style="text-align: center;">
+							<p:outputLabel for="nome" value="Nome" />						
+								<h:inputText required="true" requiredMessage="Nome é obrigatório" value="#{MusicaMB.nome}" id="nome" >
+									<f:validateLength minimum="3" />
+								</h:inputText>						
+							<p:outputLabel for="codigo" value="Código" />						
+							   <h:inputText required="true" requiredMessage="Código é obrigatório" value="#{MusicaMB.codigo}" id="codigo" >
+									<f:validateLength minimum="3" />
+								</h:inputText>
+							<p:button styleClass="btn btn-info" href="musica/lista.jsf" value="Listar" icon="fa-list"/>
+							<h:commandButton value="Cadastrar" action="#{MusicaMB.salvar}"  styleClass="btn btn-info" />
+						</p:panelGrid>
+					</h:form>
+				</p:dialog>
+
+				<p:dialog header="Inserir Álbum" widgetVar="modalAlbum" modal="true" >
+					<h:form>
+						<p:panelGrid columns="2" style="text-align: center;">
+							<p:outputLabel for="nome" value="Nome: " />
+							<p:inputText id="nome" value="#{AlbumMB.nome}" required="true" requiredMessage="Nome é obrigatório!" />
+							
+							<p:outputLabel for="descricao" value="Descrição: " />
+							<p:inputText id="descricao" value="#{AlbumMB.descricao}" required="true" requiredMessage="Descrição é obrigatório!"  />
+							
+							<p:button styleClass="btn btn-info" href="album/lista.jsf" value="Listar" icon="fa-list"/>
+							<h:commandButton styleClass="btn btn-info" value="Cadastrar" action="#{AlbumMB.salvar}" />
+							
+							<h:message></h:message>
+						</p:panelGrid>
+					</h:form>
+				</p:dialog>
+
+				<p:dialog header="Inserir Foto" widgetVar="modalFoto" modal="true" width="500">
+					<h:form id="upload" enctype="multipart/form-data"> 			
+						Escolha o Alb&uacute;m:
+						<br />
+						<h:selectOneMenu id="idAlbum" value="#{FotoMB.idAlbum}" required="true" >
+							<f:selectItem itemLabel="Selecione" itemValue="" />
+							<f:selectItems value="#{FotoMB.albuns}" var="lista" itemLabel="#{lista.nome}" itemValue="#{lista.idDescricao}" />
+							<f:ajax event="change" listener="#{FotoMB.recuperarDados}" execute="@this"/>
+						</h:selectOneMenu>
+						<br />
+       					<p:growl id="messages" />
+			            <p:fileUpload fileUploadListener="#{FotoMB.fileUpload}" process="@this @form"  mode="advanced" update="@form" multiple="true" sizeLimit="2097152" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+					</h:form>
+					<h6>Tamanho m&aacute;ximo: 2 MB</h6>
+					<p:button styleClass="btn btn-info" href="foto/lista.jsf" value="Listar" icon="fa-list"/>
+				</p:dialog>
+				
+				<p:dialog header="Moderar Posts" widgetVar="modalPost" modal="true" width="500">
+				<h6>Lista de posts pendentes</h6>
+					<ui:repeat var="Post" value="#{PostMB.postsPendentes}">
+						<h:form>
+							<div class="col-md-12">
+								<div class="col-md-4"><b>Nome:&nbsp;</b><h:outputText value="#{Post.nome}"/></div>
+								<br />
+								<div class="col-md-6"><b>Data:&nbsp;</b><h:outputText value="#{Post.dia}/#{Post.mes}/#{Post.ano} #{Post.hora}:#{Post.minuto}"/></div>
+								<br />
+								<div class="col-md-6"><b>E-mail:&nbsp;</b><h:outputText value="#{Post.email}"/></div>
+								<br />
+								<div class="col-md-12"><b>Conteúdo:&nbsp;</b><h:outputText value="#{Post.conteudo}"/></div>
+							</div>
+							<br />
+							<div class="col-md-12">
+								<h:commandButton action="#{PostMB.aprovar}" styleClass="btn btn-success" value="Aprovar" onclick="if(confirm('Tem certeza dessa ação?')){ return true }else{ return false};">
+									<f:param name="id" value="#{Post.id}" />
+								</h:commandButton>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<h:commandButton action="#{PostMB.recusar}" styleClass="btn btn-danger" value="Recusar" onclick="if(confirm('Tem certeza dessa ação?')){ return true }else{ return false};">
+									<f:param name="id" value="#{Post.id}" />
+								</h:commandButton>
+							</div>														
+						</h:form>
+						<br />
+					</ui:repeat>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<p:button styleClass="btn btn-info" href="post/lista.jsf" value="Listar" icon="fa-list"/>
+				</p:dialog>
+        
+        
+        <div class="flex-row">
+      <div class="sidebar">
+        <header class="site-header">
+          <h1> <i class="fa fa-gear" /> Painel Administrativo</h1>
+          <hr />
+        </header>
+        <div class="mobile-menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="left-nav">          
+          <ul>
+            <li><a onclick="PF('modalAdministrador').show();" class="show-1" href="#"><i class="fa fa-users"></i> Administrador</a></li>
+			<li><a onclick="PF('modalMusica').show();" class="show-2" href="#"><i class="fa fa-music"></i>M&uacute;sica</a></li>
+			<li><a onclick="PF('modalAlbum').show();" class="show-3" href="#"><i class="fa fa-book"></i> Album</a></li>
+			<li><a onclick="PF('modalFoto').show();" class="show-4" href="#"><i class="fa fa-photo"></i> Foto</a></li>
+			<li><a onclick="PF('modalPost').show();" class="show-8" href="#"><i class="fa fa-newspaper-o"></i>Posts</a></li>
+          </ul>  
+        </nav>
+        <div style="margin-left: 20px;">
+	        <h:form>
+	              <h:commandButton action="#{UsuarioMB.doLogout}" styleClass="btn btn-warning" value="LOGOUT">
+	                  <f:param name="usuario" value="#{UsuarioMB.login}" />
+	                  <f:param name="senha" value="#{UsuarioMB.senhaLogin}" />
+	              </h:commandButton>
+	        </h:form>
+        </div>
+      </div>
+      
+      <div class="content col-1 light-gray-bg">
+          <footer class="text-right">
+            <p>Copyright &copy; 2015 Gerenciamento de Conteúdo - 
+            Design por <a href="#">Leonardo Souza - Luan Nascimento</a></p>
+          </footer>         
+        </div>
+      </div>
+        
+			
+
+</h:body>
+</html>

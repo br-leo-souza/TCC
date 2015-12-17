@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<style>
+
+.contact-form input { width: 100%; padding: 7px 10px; outline: 0; border: 0; }
+
+textarea { outline: 0; border: 0; padding: 10px; }
+
+label { font-weight: normal; }
+
+.contact-form { margin-top: 30px; }
+.contact-form input { margin-bottom: 20px; height: 40px; }
+
+.full-row textarea { width: 100%; }
+
+input.mainBtn { background-color: #a71e2b; color: white; border: 0; outline: 0; margin-top: 20px; padding: 7px 12px; text-transform: uppercase; }
+
+.our-location li { line-height: 28px;  font-size: 13px;}
+.our-location li span { color: #a71e2b; margin-right: 10px; }
+.our-location li span i { margin-right: 10px; }
+.our-location li a { color: white; }
+
+.google-map { margin-top: 30px; }
+
+.contact-map { width: 100%; overflow: hidden; }
+
+.vermelho {
+      color : red;
+   }
+</style>
+
+</h:head>
+<h:body>
+	<div id="menu-5" class="content agenda">
+		<div class="page-header">
+			<h2 class="page-title">Contato</h2>
+		</div>
+		<!-- /.page-header -->
+		
+		<div class="content-inner">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="widget-title">Fa&ccedil;a Contato Conosco!</h3>
+                
+                <h:form>
+                
+                <p>Fa&ccedil;a contato com nossa equipe. Teremos o maior prazer em responder em menor tempo poss&iacute;vel. <br />Informe um e-mail válido para que possamos responder.</p>
+                <div class="row contact-form">
+                
+                <h:messages class="vermelho"></h:messages>
+                
+                
+							<div class="col-md-4">
+								<h:outputLabel for="nome" value="Nome"></h:outputLabel>
+								<h:inputText required="true" requiredMessage="Nome é obrigatório" value="#{ContatoMB.nome}" id="nome" size="80">
+									<f:validateLength minimum="3"></f:validateLength>
+								</h:inputText>
+							</div>
+
+							<div class="col-md-4">
+								<h:outputLabel for="email" value="Email"></h:outputLabel>
+								<h:inputText required="true" requiredMessage="E-mail é obrigatório" value="#{ContatoMB.mail}" id="email" size="80">
+									<f:validateLength minimum="3"></f:validateLength>
+								</h:inputText>
+							</div>
+							
+							<div class="col-md-4">
+								<h:outputLabel for="assunto" value="Assunto"></h:outputLabel>
+								<h:inputText required="true" requiredMessage="Assunto é obrigatório" value="#{ContatoMB.assunto}" id="assunto" size="80">
+									<f:validateLength minimum="3"></f:validateLength>
+								</h:inputText>
+							</div>
+                    
+                    
+                </div> <!-- /.contact-form -->
+                <p class="full-row">
+                    <h:outputLabel for="mensagem" value="Mensagem"></h:outputLabel>
+                    <h:inputTextarea required="true" rows="6" requiredMessage="Texto da mensagem obrigatório!" value="#{ContatoMB.mensagem}" id="mensagem"></h:inputTextarea>
+                </p>
+                
+                
+                <h:outputLabel value=""></h:outputLabel>		
+			 <h:commandButton style="width: 50%; color: white; color-size: 20px; background-color: black" 
+			 			action="#{ContatoMB.enviar}" 
+			            value="Enviar"></h:commandButton>
+                </h:form>
+                
+            </div> <!-- /.col-md-8 -->
+            <div class="col-md-4">
+                            <div class="information">
+                    <h3 class="widget-title">Outros contatos</h3>
+                    <ul class="our-location">
+                        <li><span><i class="fa fa-map-marker"></i>Telefone:</span>(21) 99376-0920</li>
+                        <li><span><i class="fa fa-map-marker"></i>Telefone:</span>(21) 98231-1556</li>
+                        <li><span><i class="fa fa-map-marker"></i>Telefone:</span>(21) 99689-2818</li>
+                        <li><span><i class="fa fa-map-marker"></i>E-mail:</span><a href="mailto:orbitacrista@gmail.com">orbitacrista@gmail.com</a></li>
+                    </ul>
+                </div>    
+            </div> 
+        </div> 
+    </div> 
+		
+	</div>
+	<!-- /.content-inner -->
+
+</h:body>
+
+</html>

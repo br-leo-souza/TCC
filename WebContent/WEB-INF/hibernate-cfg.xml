@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/orbitacrista</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123456</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+			
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="show_sql">true</property>
+	
+	    <property name="hibernate.hbm2ddl.auto">update</property>
+	
+		<mapping class="modelo.Visita"/>
+		<mapping class="controle.VisitaMB"/>
+		<mapping class="controle.ContatoMB"/>
+		<mapping class="modelo.Administrador"/>
+		<mapping class="controle.AdministradorMB"/>
+		<mapping class="modelo.Album"/>
+		<mapping class="controle.AlbumMB"/>
+		<mapping class="modelo.Foto"/>
+		<mapping class="controle.FotoMB"/>
+		<mapping class="modelo.Musica"/>
+		<mapping class="controle.MusicaMB"/>
+		<mapping class="modelo.Post"/>
+		<mapping class="controle.PostMB"/>
+	
+	</session-factory>
+</hibernate-configuration>

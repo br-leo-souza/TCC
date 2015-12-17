@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script type="text/javascript">
+	//<![CDATA[
+		
+		jQuery(document).ready(
+				/* ************************************* */
+				function($) {
+					$(".1").click(function() {
+						$(".musicas").slideUp(1200);
+					});
+					$(".2").click(function() {
+						$(".musicas").slideDown(1200);
+					});
+					$(".3").click(function() {
+						$(".musicas").slideDown(1200);
+					});
+
+					var $gal = $('#gallery'), $sli = $('#slider'), $box = $( 'div', $sli), W = $gal.width(), N = $box.length, C = 0;
+
+					$sli.width(W * N);
+
+					$('#prev, #next').click(function() {
+						C = (this.id == 'next' ? ++C : --C) < 0 ? N - 1 : C % N;
+						$sli.stop().animate({ left : -C * W }, 800);
+						});
+				});
+					// TO EXPLAIN THE MADNESS ABOVE
+
+					// $('#prev, #next').click(function(){
+
+					// We need to animate the #slider
+					// some -left position.
+					// We have a "C" counter set to the '0' (first slide),
+					// on click NEXT, PREV, we incr,decrease the C counter
+					// and simply move #slider by C * the slide width!
+
+					// DETECT PREV NEXT AND +,- OUR COUNTER
+					// if(this.id=='next'){ C++; }else{ C--; }
+
+					// Prevent C GO TO -1 (prev button)
+					// if(C<0){ C = N-1; }
+					// Prevent C exceed N. of slides (next button)
+					//  else{ C = C%N; }  // (% = Modulo operator)
+
+					//  $sli.stop().animate({left: -C*W },800);
+
+					//  });     
+				
+		//]]>
+
+	</script>
+
+
+<style>
+
+.services .service { margin-top: 30px; overflow: hidden; background-color: white; }
+
+.services .header { position: relative; height: 60px; }
+
+.services .header .header-bg { position: absolute; width: 60px; height: 60px; z-index: 2; }
+
+.services .header .service-header { position: absolute; z-index: 3; width: 100%; }
+
+.services .header .service-header .icon { width: 60px; position: relative; float: left; line-height: 60px; height: 60px; text-align: center; }
+.services .header .service-header .icon i { font-size: 18px; }
+
+.services .header .service-header h4 { float: left; line-height: 60px; margin: 0; padding: 0 15px; color: #222222; }
+.services .header .service-header h4.active { color: white; }
+
+.services .body { padding: 20px; color: #3c3c3c; overflow: hidden; }
+
+.services .header .header-bg { background: #a71e2b; }
+
+.sub-conteudo{width: auto; height: auto; border-bottom: 1px solid #a71e2b;}
+.seletor{ cursor: pointer; border: solid 1px white; padding: 15px; margin: 10px; border-radius: 20px}
+.seletor:hover{ background: #FFF; color: #000;}
+
+
+#gallery{
+    position:relative;
+    margin: 0 auto;
+    overflow:hidden;
+    width:650px;
+    height:720px; /* +30 = space for buttons */
+    text-align:center; /* to center the buttons */
+}
+
+#comentarios{
+    background: #333333;
+}
+#slider{
+    position:absolute;
+    left:0;
+    width: 650px;
+    text-align:left; /* to reset text inside slides */
+}
+#slider > div {
+    position:relative;
+    float:left;
+}
+#prev{
+    right: 300px;
+    font-size: 30px;
+    color: red;
+    position:relative;
+    top:200px;
+    cursor:pointer;
+}
+#next{
+    left: 300px;
+    font-size: 30px;
+    color: red;
+    position:relative;
+    top:200px;
+    cursor:pointer;
+    padding:5px;
+}
+.box{
+    background-color:#303030; 
+    padding:6px;
+    height:27px;
+    width: 100%;
+}
+.on_img{
+    background-image:url(./img/on.gif);
+    background-repeat:no-repeat;
+    padding-left:35px;
+    cursor:pointer;
+    width:60px;
+}       
+
+.over_img{
+    background-image:url(./img/over.gif);
+    background-repeat:no-repeat;
+    padding-left:35px;
+    cursor:pointer;
+    width:60px;
+}
+
+.stars {
+  width: 150px;
+  height: 20px;
+  margin: 0 auto;
+}
+.stars li {
+  background: url('./img/star_groups.png') no-repeat;
+  display: block;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  float: left;
+}
+
+.stars li.active {
+  background-position: left -45px;
+}
+
+#sql {
+  font: bold 20px Arial;
+  color: #f00;
+  text-align: center;
+  clear: both;
+}
+
+</style>
+
+</h:head>
+
+<h:body>
+	<div id="menu-4" class="content agenda">
+		<div class="page-header">
+			<h2 class="page-title">Mídia</h2>
+		</div>
+		<!-- /.page-header -->
+		<div class="content-inner">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="widget-title">Material Oficial da Banda</h3>
+				</div>
+
+				<div class="col-md-12">
+					<h3 class="widget-title">
+						<span class="seletor 2 fa fa-music">&nbsp;&nbsp;M&uacute;sicas</span>
+						<span class="seletor 3 fa fa-expand"></span>
+					</h3>
+				</div>
+
+			</div>
+
+			<div class="sub-conteudo musicas">
+			    <ui:repeat var="Musica" value="#{MusicaMB.musicas}">
+					<iframe width="100%" height="166" scrolling="no" frameborder="no" src="#{Musica.codigo}" />
+					<br />
+					<hr />
+					<br />
+				</ui:repeat>
+			</div>
+		</div>
+	</div>
+
+</h:body>
+
+</html>

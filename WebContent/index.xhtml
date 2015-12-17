@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>&Oacute;rbita Crist&atilde;</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Novo site da banda &Oacute;rbita Crist&atilde;" />
+        <meta name="keywords" content="banda, rock, orbita, metal, cristo, Deus, novo, site" />
+        <meta property="og:image" content="img/logo.png" />
+        <meta name="author" content="Renato Lima" />
+        <meta charset="UTF-8" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" />
+        <link rel="stylesheet" href="css/lightbox.css" />
+        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="css/main.css" media="screen" />
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="./img/favicon.png" />
+
+        <!-- JavaScripts -->
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.transit.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        
+        <script src="js/personalizacao.js"></script>
+
+        <!--        PRELOADER-->
+        <script data-pace-options='{ "ajax": false }' src='./js/pace.min.js' ></script>
+
+        <!--[if lt IE 8]>
+            <div style=' clear: both; text-align:center; position: relative;'>
+                <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/img/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+            </div>
+        <![endif]-->
+</h:head>
+<h:body onload="#{VisitaMB.cadastrar()}">
+
+<div class="bg-image"></div>
+        <div class="overlay-bg"></div>
+
+        <!-- Menu para Mobile -->
+        <div class="responsive-navigation visible-sm visible-xs">
+            <a href="#" class="menu-toggle-btn">
+                <i class="fa fa-bars fa-2x"></i>
+            </a>
+            <div class="responsive_menu">
+                <ul class="main_menu">
+                    <li><a class="show-1" href="#"><i class="fa fa-user"></i>A Banda</a></li>
+                    <li><a class="show-3" href="#"><i class="fa fa-camera-retro"></i>Fotos</a></li>
+                    <li><a class="show-4" href="#"><i class="fa fa-play"></i>Mídia</a></li>
+                    <li><a class="show-5" href="#"><i class="fa fa-envelope"></i>Entre em Contato</a></li>
+                    <li><a class="show-6" href="#"><i class="fa fa-group"></i>Postagens</a></li>
+                </ul> <!-- /.Menu principal - Itens -->
+            </div> <!-- /.Menu principal - grupo de Itens -->
+        </div> <!-- /Bloco do Menu -->
+
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Menu Fixo -->
+                    <div class="col-md-2 visible-md visible-lg">
+                        <div class="main_menu">
+                            <ul class="menu">
+                                <li><a class="show-1" href="#" data-toggle="tooltip" data-original-title="A Banda"><i class="fa fa-user"></i></a></li>
+                                <li><a class="show-3" href="#" data-toggle="tooltip" data-original-title="Fotos"><i class="fa fa-camera-retro"></i></a></li>
+                                <li><a class="show-4" href="#" data-toggle="tooltip" data-original-title="M&iacute;dia"><i class="fa fa-play"></i></a></li>
+                                <li><a class="show-5" href="#" data-toggle="tooltip" data-original-title="Entre em contato Conosco"><i class="fa fa-envelope"></i></a></li>
+                                <li><a class="show-6" href="#" data-toggle="tooltip" data-original-title="Postagens"><i class="fa fa-group"></i></a></li>
+                            </ul>
+                        </div> <!-- /.Menu Fixo -->
+                    </div> <!-- /.col-md-2 -->
+
+                    <!-- Inicio do conteudo -->
+                    <div class="col-md-10">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="logo">
+                                    <a href="#">
+                                        <img src="img/logo.png" alt="&Oacute;rbita Crist&atilde;" />
+                                    </a>
+                                </div> <!-- /.logo -->
+                            </div> <!-- /.col-md-12 -->
+                        </div>  <!--/.row -->
+
+
+                        <div id="menu-container">
+                        
+                        <ui:include src="/banda.xhtml"></ui:include>
+                        <ui:include src="/fotos.xhtml"></ui:include>
+                        <ui:include src="/midia.xhtml"></ui:include>
+                        <ui:include src="/contato.xhtml"></ui:include>
+                        <ui:include src="/post.xhtml"></ui:include>
+
+                            <div class="site-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="copyright-text"><a>Produzido pela Equipe &Oacute;rbita Crist&atilde; - 2014 - Produ&ccedil;&atilde;o independente</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="social-icons-footer">
+                                            <ul>
+                                                <!--<li><a href="#" class="fa fa-shopping-cart" data-toggle="tooltip" data-original-title="Acesse nossa Loja!" style="width: 180px;"> - Acesse nossa Loja!</a></li>-->
+                                                <li><a href="https://myspace.com/orbitacrista" data-toggle="tooltip" data-original-title="MySpsce" target="_blank" class="fa fa-group"></a></li>
+                                                <li><a href="https://www.linkedin.com/profile/view?id=397907709" data-toggle="tooltip" data-original-title="Linkedin" target="_blank" class="fa fa-linkedin"></a></li>
+                                                <li><a href="http://palcomp3.com/orbitacristaoficial/" data-toggle="tooltip" data-original-title="PalcoMP3" target="_blank" class="fa fa-play"></a></li>
+                                                <li><a href="https://www.facebook.com/orbitacristaoficial" data-toggle="tooltip" data-original-title="Facebook" target="_blank" class="fa fa-facebook"></a></li>
+                                                <li><a href="https://twitter.com/orbitacrista" data-toggle="tooltip" data-original-title="Twitter" target="_blank" class="fa fa-twitter"></a></li>
+                                                <li><a href="http://instagram.com/bandaorbitacristaoficial" data-toggle="tooltip" data-original-title="Instagram" target="_blank" class="fa fa-instagram"></a></li>
+                                                <li><a href="https://soundcloud.com/orbitacristaoficial/" data-toggle="tooltip" data-original-title="SoundCloud" target="_blank" class="fa fa-cloud"></a></li>
+                                                <li><a href="http://www.cifraclub.com.br/orbita-crista/" data-toggle="tooltip" data-original-title="CifraClub" target="_blank" class="fa fa-music"></a></li>
+                                                <li><a href="https://www.youtube.com/channel/UC8HGy1_DdGWI1V27J4zIBiQ" data-toggle="tooltip" data-original-title="CifraClub" target="_blank" class="fa fa-youtube"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- /.site-footer -->
+
+                        </div> <!-- /.content-holder -->
+
+                    </div> <!-- /.col-md-10 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.main-content -->
+
+
+
+</h:body>
+</html>

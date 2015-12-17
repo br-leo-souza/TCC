@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- Particular -->
+	<link rel="stylesheet" type="text/css" media="all"
+		href="../css/adm-style.css" />
+	<link rel="stylesheet" href="../css/font-awesome.css" />
+
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="../css/bootstrap-theme.css" />
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+
+
+<div class="responsive-navigation visible-sm visible-xs">
+
+		<div class="responsive_menu">
+			<ul class="main_menu">
+				<li>
+				    <a class="show-1" id="itemresponsivo" href="#">
+				        <i class="fa fa-home" /> Painel 
+				    </a>
+				</li>
+				<li>
+				    <a class="show-1" id="itemresponsivo" href="#">
+				        <i class="fa fa-list" /> Lista 
+				    </a>
+				</li>
+				<li>
+				    <a class="show-1" id="itemresponsivo" href="#">
+				        <i class="fa fa-sign-out"></i> Logout 
+				    </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div id="adm" class="jumbotron">
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-lg-12">
+					<div class="col-lg-2">
+
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li>
+									<div id="item">
+										<a href="../painel.jsf"><i class="fa fa-home fa-2x" /> </a>
+									</div>
+								</li>
+								<li>
+									<div id="item">
+										<a href="lista.jsf"><i class="fa fa-list fa-2x" /> </a>
+									</div>
+								</li>
+								<li>
+									<div id="item">
+										<a href="#"><i class="fa fa-sign-out fa-2x" /> </a>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+					<div class="col-lg-10">
+						
+		<h:form>
+			<p:growl id="messages"></p:growl>
+			<div class="col-md-2">Nome :</div>
+			<div class="col-md-12">
+				<p:inputText value="#{AdministradorMB.administrador.nome}" />
+			</div>
+			
+			<div class="col-md-2">Sobrenome :</div>
+			<div class="col-md-12">
+				<p:inputText value="#{AdministradorMB.administrador.sobrenome}" />
+			</div>
+			
+			<div class="col-md-2">Login :</div>
+			<div class="col-md-12">
+				<p:inputText value="#{AdministradorMB.administrador.login}" />
+			</div>
+			
+			<div class="col-md-2">Senha :</div>
+			<div class="col-md-12">
+				<p:password value="#{AdministradorMB.administrador.senha}" />
+			</div>
+			
+			<div class="col-md-2">E-mail :</div>
+			<div class="col-md-12">
+				<p:inputText value="#{AdministradorMB.administrador.email}" />
+			</div>
+			
+			<div class="col-md-2">Telefone :</div>
+			<div class="col-md-12">
+				<p:inputMask value="#{AdministradorMB.administrador.telefone}" mask="(99) 99999-9999"/>
+			</div>
+			
+			<div class="col-md-10">
+				<h:commandLink action="#{AdministradorMB.atualizar}" value="Salvar" styleClass="btn btn-default">
+					<f:param name="id" value="#{AdministradorMB.administrador.id}" />
+				</h:commandLink>
+			</div>
+		</h:form>
+	
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+</h:body>
+</html>
